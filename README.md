@@ -1,5 +1,5 @@
 # **BLUE TEAM. SentinelOps – Defensive Security Simulator**  
-![Role – Defender](https://img.shields.io/badge/Role-Defender-blue?style=for-the-badge&logo=shield)
+![Role – Defender](https://img.shields.io/badge/Role-Defender-blue?style=for-the-badge&logo=hackthebox)
 ![Skill – Threat Detection Automation](https://img.shields.io/badge/Skill-Threat_Detection_Automation-yellow?style=for-the-badge&logo=python)
 ![Output – Incident Report Dashboard](https://img.shields.io/badge/Output-Incident_Report_Dashboard-green?style=for-the-badge)
 ![Compliance – NIST_800-53/FISMA](https://img.shields.io/badge/Compliance-NIST_800--53%2FFISMA-blueviolet?style=for-the-badge)

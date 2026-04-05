@@ -39,6 +39,9 @@ Suspicious process monitoring
 Generates PDF or HTML “incident reports”  
 Logs actionable alerts for security operations teams  
   
+### Blue Team Workflow
+[Detection] → [Analysis] → [Response] → [Reporting]    
+  
 **Proves or shows the following:**  
 Understanding of defensive workflows and SOC operations  
 Automation and analysis skills  

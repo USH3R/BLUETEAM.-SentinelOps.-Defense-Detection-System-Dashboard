@@ -4,7 +4,7 @@
 ![Output – Incident Report Dashboard](https://img.shields.io/badge/Output-Incident_Report_Dashboard-green?style=for-the-badge)
 ![Compliance – NIST_800-53/FISMA](https://img.shields.io/badge/Compliance-NIST_800--53%2FFISMA-blueviolet?style=for-the-badge)
 ![Simulation – Real-Time SOC Lab](https://img.shields.io/badge/Simulation-Real_Time_SOC_Lab-lightgrey?style=for-the-badge)
-![Detection – Brute Force & Anomaly Alerts](https://img.shields.io/badge/Detection-Brute_Force_&_Anomaly_Alerts-red?style=for-the-badge)  
+![Detection – Brute Force & Anomaly Alerts](https://img.shields.io/badge/Detection-Brute_Force_&_Anomaly_Alerts-orange?style=for-the-badge)  
 A controlled, defensive security platform that simulates monitoring, detecting, and responding to suspicious activity in a protected environment.  
 ✅ Simulates real-world defensive actions  
 Detects brute-force login attempts  

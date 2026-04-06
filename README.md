@@ -52,7 +52,82 @@ blueteam-sentinelops/
 ├── lab_env/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# simulated log sources (attack traffic)  
 └── rules_of_engagement/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# safety + compliance  
 
-&nbsp;
+blueteam-sentinelops/  
+│
+├── README.md  
+├── LICENSE  
+├── requirements.txt  
+├── docker-compose.yml  
+├── docs/  
+│ ├── architecture.md  
+│ ├── detection_workflow.md  
+│ ├── nist_mapping.md  
+│ └── rules_of_engagement.md  
+├── config/  
+│ ├── settings.yaml  
+│ ├── detection_rules.yaml  
+│ └── log_sources.yaml  
+├── lab_env/  
+│ ├── attacker_sim/  
+│ │ ├── brute_force.py        # simulates attacks against services  
+│ │ └── traffic_gen.py  
+│ ├── web_logs/  
+│ │ ├── Dockerfile  
+│ │ └── access.log  
+│ ├── auth_logs/  
+│ │ ├── Dockerfile  
+│ │ └── auth.log  
+│ └── system_logs/  
+│ ├── Dockerfile  
+│ └── syslog.log  
+├── orchestrator/  
+│ ├── main.py                 # entry point  
+│ ├── pipeline.py            # detection pipeline  
+│ └── scheduler.py           # real-time / batch processing  
+├── ingestion/  
+│ ├── log_collector.py       # pulls logs from sources  
+│ ├── parser.py              # normalizes logs  
+│ └── utils.py  
+├── detection_modules/  
+│ ├── brute_force/  
+│ │ ├── detector.py          # detects repeated login failures  
+│ │ └── thresholds.yaml  
+│ ├── anomaly/  
+│ │ ├── impossible_travel.py  
+│ │ └── behavior_model.py  
+│ └── process_monitor/  
+│ └── suspicious_process.py  
+├── correlation/
+│ ├── event_linker.py        # ties events together  
+│ ├── timeline_builder.py    # builds attack timelines  
+│ └── logic.py  
+├── response/  
+│ ├── alert_manager.py       # generates alerts  
+│ ├── playbooks/  
+│ │ ├── brute_force_response.py  
+│ │ ├── anomaly_response.py  
+│ │ └── containment.py  
+│ └── notifier.py            # CLI / webhook / email alerts  
+├── reporting/  
+│ ├── report_generator.py  
+│ ├── templates/  
+│ │ ├── incident.html  
+│ │ └── timeline.html  
+│ └── output/  
+│ └── (generated reports here)  
+├── dashboard/ (optional but 🔥 for portfolio)
+│ ├── app.py                 # Flask / FastAPI UI
+│ └── templates/  
+│ └── index.html  
+├── logs/  
+│ ├── events.log  
+│ ├── alerts.log  
+│ └── incidents.log  
+└── tests/  
+├── test_ingestion.py  
+├── test_detection.py  
+├── test_correlation.py  
+└── test_pipeline.py  
   
 **Proves or shows the following:**  
 Understanding of defensive workflows and SOC operations  

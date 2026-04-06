@@ -142,7 +142,7 @@ blueteam-sentinelops/
 ├── test_correlation.py  
 └── test_pipeline.py  
   
-**Proves or shows the following:**  
+**Prove or show the following:**  
 Understanding of defensive workflows and SOC operations  
 Automation and analysis skills  
 Real-time alerting and reporting (crucial for federal reviewers)  

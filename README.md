@@ -182,7 +182,7 @@ in the settings.yaml, the mode is currently set to
   
 alert_only.  
   
-If the user wants to test the blocking logic, you'll need to update your settings.yaml file to:  
+If the user wants to test the blocking logic the settings.yaml file must be updated to:  
   
 simulate_block  
   

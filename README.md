@@ -168,8 +168,8 @@ Using GitHub Codespaces (Recommended)
 2. Once the Terminal loads, simply type: python3 main.py
 
 # **Notes**
-This app mimics a professional DevSecOps workflow where security policies are 'Infrastructure as Code' (IaC). You don't just 'click a button' to block IPs; you update a policy file for auditability.
-**🔍 Logic Check**
+This app mimics a professional DevSecOps workflow where security policies are 'Infrastructure as Code' (IaC). You don't just 'click a button' to block IPs; you update a policy file for auditability.  
+**🔍 Logic Check**  
 In the handle_alerts loop:  
   
 if self.mode == "alert_only":  

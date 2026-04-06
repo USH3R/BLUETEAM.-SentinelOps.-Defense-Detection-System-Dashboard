@@ -53,7 +53,7 @@ blueteam-sentinelops/
 └── rules_of_engagement/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# safety + compliance  
 
 blueteam-sentinelops/  
-│
+│  
 ├── README.md  
 ├── LICENSE  
 ├── requirements.txt  
@@ -69,7 +69,7 @@ blueteam-sentinelops/
 │ └── log_sources.yaml  
 ├── lab_env/  
 │ ├── attacker_sim/  
-│ │ ├── brute_force.py        # simulates attacks against services  
+│ │ ├── brute_force.py  
 │ │ └── traffic_gen.py  
 │ ├── web_logs/  
 │ │ ├── Dockerfile  
@@ -81,16 +81,16 @@ blueteam-sentinelops/
 │ ├── Dockerfile  
 │ └── syslog.log  
 ├── orchestrator/  
-│ ├── main.py                 # entry point  
-│ ├── pipeline.py            # detection pipeline  
-│ └── scheduler.py           # real-time / batch processing  
+│ ├── main.py  
+│ ├── pipeline.py  
+│ └── scheduler.py  
 ├── ingestion/  
-│ ├── log_collector.py       # pulls logs from sources  
-│ ├── parser.py              # normalizes logs  
+│ ├── log_collector.py  
+│ ├── parser.py  
 │ └── utils.py  
 ├── detection_modules/  
 │ ├── brute_force/  
-│ │ ├── detector.py          # detects repeated login failures  
+│ │ ├── detector.py  
 │ │ └── thresholds.yaml  
 │ ├── anomaly/  
 │ │ ├── impossible_travel.py  
@@ -98,16 +98,16 @@ blueteam-sentinelops/
 │ └── process_monitor/  
 │ └── suspicious_process.py  
 ├── correlation/
-│ ├── event_linker.py        # ties events together  
-│ ├── timeline_builder.py    # builds attack timelines  
+│ ├── event_linker.py  
+│ ├── timeline_builder.py  
 │ └── logic.py  
 ├── response/  
-│ ├── alert_manager.py       # generates alerts  
+│ ├── alert_manager.py  
 │ ├── playbooks/  
 │ │ ├── brute_force_response.py  
 │ │ ├── anomaly_response.py  
 │ │ └── containment.py  
-│ └── notifier.py            # CLI / webhook / email alerts  
+│ └── notifier.py  
 ├── reporting/  
 │ ├── report_generator.py  
 │ ├── templates/  
@@ -115,8 +115,8 @@ blueteam-sentinelops/
 │ │ └── timeline.html  
 │ └── output/  
 │ └── (generated reports here)  
-├── dashboard/ (optional but 🔥 for portfolio)
-│ ├── app.py                 # Flask / FastAPI UI
+├── dashboard/  
+│ ├── app.py  
 │ └── templates/  
 │ └── index.html  
 ├── logs/  

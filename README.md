@@ -39,9 +39,21 @@ Suspicious process monitoring
 Generates PDF or HTML “incident reports”  
 Logs actionable alerts for security operations teams  
   
+# **Blue Team SentinelOps Structure**  
+**Primary Files / Structure**
+blueteam-sentinelops-minimal/
+├── main.py  
+├── ingestion.py  
+├── detection.py  
+├── response.py   
+├── reporting.py  
+├── settings.yaml  
+└── Dockerfile  
+  
 **Blue Team Workflow**  
 [Detection] → [Analysis] → [Response] → [Reporting]  
 
+Future Files / Structure  
 blueteam-sentinelops/  
 ├── orchestrator/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# controls detection + response flow  
 ├── ingestion/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   # log collection + normalization  
@@ -51,7 +63,8 @@ blueteam-sentinelops/
 ├── reporting/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# incident reports + dashboards  
 ├── lab_env/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# simulated log sources (attack traffic)  
 └── rules_of_engagement/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# safety + compliance  
-
+  
+Potential / Future Files / Structure  
 blueteam-sentinelops/  
 │  
 ├── README.md  

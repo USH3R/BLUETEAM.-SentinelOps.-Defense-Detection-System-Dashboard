@@ -171,13 +171,13 @@ Using GitHub Codespaces (Recommended)
 
 **⚠️ Important: Environment & Safety**  
   
-Enclosed Simulation: This toolkit only "looks in on itself." It monitors a dedicated evidence.dat file and generated logs within the container environment.  
+Enclosed Simulation: This toolkit only scans itself. It monitors a dedicated evidence.dat file and generated logs within the container environment.  
 No External Access: This app does not scan your local hardware, open network ports, or transmit data.  
 Scenario Logic: The "threats" detected are part of a randomized simulation library used to test the engine's response and reporting capabilities.  
 
 **📊 Understanding the Output**  
-When the scan completes, you will receive a JSON Incident Summary.  
+When the scan completes, the user recieves a JSON Incident Summary which includes:    
 &nbsp;&nbsp;&nbsp;&nbsp;Engine Status: Confirms the system is active.  
-&nbsp;&nbsp;&nbsp;&nbsp;Alerts Found: Total count of identified anomalies.
-&nbsp;&nbsp;&nbsp;&nbsp;Raw Data: A breakdown of every log entry captured during the scan, 
+&nbsp;&nbsp;&nbsp;&nbsp;Alerts Found: Total count of identified anomalies.  
+&nbsp;&nbsp;&nbsp;&nbsp;Raw Data: A breakdown of every log entry captured during the scan,  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from routine maintenance to critical "Emergency" violations.  

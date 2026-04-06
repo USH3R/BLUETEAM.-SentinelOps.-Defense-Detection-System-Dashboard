@@ -5,34 +5,4 @@ services:
     container_name: sentinelops_container
     environment:
       - PYTHONUNBUFFERED=1
-    network_mode: "host"services:
-  sentinelops:
-    build: .
-    image: sentinelops:latest
-    container_name: sentinelops_container
-    volumes:
-      - .:/app
-    environment:
-      - PYTHONUNBUFFERED=1
     network_mode: "host"
-    restart: "no"services:
-  sentinelops:
-    build: .
-    image: sentinelops:latest
-    container_name: sentinelops_container
-    volumes:
-      - .:/app
-    environment:
-      - PYTHONUNBUFFERED=1
-    network_mode: "host"
-    restart: "no"services:
-  sentinelops:
-    build: .
-    image: sentinelops:latest
-    container_name: sentinelops_container
-    volumes:
-      - .:/app
-    environment:
-      - PYTHONUNBUFFERED=1
-    network_mode: "host"
-    restart: "no"

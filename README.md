@@ -43,14 +43,14 @@ Logs actionable alerts for security operations teams
 [Detection] → [Analysis] → [Response] → [Reporting]  
 
 blueteam-sentinelops/
-├── orchestrator/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        # controls detection + response flow
-├── ingestion/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          # log collection + normalization
-├── detection_modules/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   # detection rules + analytics
-├── correlation/   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      # event linking + anomaly logic
-├── response/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            # automated responses / playbooks
-├── reporting/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;           # incident reports + dashboards
-├── lab_env/   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          # simulated log sources (attack traffic)
-└── rules_of_engagement/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # safety + compliance
+├── orchestrator/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        # controls detection + response flow  
+├── ingestion/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          # log collection + normalization  
+├── detection_modules/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   # detection rules + analytics  
+├── correlation/   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      # event linking + anomaly logic  
+├── response/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            # automated responses / playbooks  
+├── reporting/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;           # incident reports + dashboards  
+├── lab_env/   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          # simulated log sources (attack traffic)  
+└── rules_of_engagement/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # safety + compliance  
 
 
   

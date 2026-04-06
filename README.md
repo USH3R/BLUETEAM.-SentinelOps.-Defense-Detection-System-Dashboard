@@ -160,3 +160,9 @@ https://github.com/USH3R/REDTEAM.-Offensive-Security-Simulator
 https://github.com/USH3R/ZEROTRUSTFS.-Security-Toolkit.-NPM-Containers.-Federal-File-Sharing-System./tree/main  
 Together, these projects showcase full-spectrum cybersecurity capability, illustrating that the author can attack, defend, and build secure systems across the complete security lifecycle.  
 
+# **Instructions to BLUETEAM. SentinelOps. Defense Detection System Dashboard**  
+**Using GitHub Codespaces (Recommended)**
+1. Click the green '<> Code' button on this repo, then
+2. Select the tab called Codespaces, then
+3. Select (click on) 'Create codespace on main'.
+2. Once the Terminal loads, simply type: python3 main.py

@@ -1,0 +1,8 @@
+Apr 06 01:00:01 sentinel-node sshd[1234]: Accepted password for admin from 192.168.1.15
+Apr 06 01:05:10 sentinel-node sshd[5678]: Failed password for root from 192.168.1.50
+Apr 06 01:05:12 sentinel-node sshd[5679]: Failed password for root from 192.168.1.50
+Apr 06 01:05:14 sentinel-node sshd[5680]: Failed password for root from 192.168.1.50
+Apr 06 01:05:16 sentinel-node sshd[5681]: Failed password for root from 192.168.1.50
+Apr 06 01:05:18 sentinel-node sshd[5682]: Failed password for root from 192.168.1.50
+Apr 06 01:05:20 sentinel-node sshd[5683]: Failed password for root from 192.168.1.50
+Apr 06 01:10:00 sentinel-node sshd[9012]: Accepted password for user1 from 10.0.0.5

@@ -1,4 +1,4 @@
-# main.py — SentinelOps: THE CHAOS MONKEY (v2.0)
+# main.py — SentinelOps: THE TOTAL CHAOS ENGINE (v3.0)
 import random
 import os
 import time
@@ -7,67 +7,79 @@ from response import execute_response
 
 def chaos_monkey():
     """
-    The Intensity Dial: 1 (Bored) to 12 (Nuke it from Orbit).
-    Higher intensity means more log noise and actual file tampering.
+    The Automated Chaos Monkey.
+    Uses unique sampling to prevent repetitive 'Hard Pull' logs.
     """
+    # 1. THE INTENSITY DIAL (1 to 12)
     intensity = random.randint(1, 12)
-    print(f"[*] Current Threat Intensity: {intensity}/12")
-    
-    # --- THE THREAT LIBRARY ---
-    common_noise = [
-        "Failed password for root from 192.168.1.50 port 22 ssh2",
-        "Failed password for admin from 45.33.12.161 port 22 ssh2",
-        "CRITICAL: Multiple failed sudo attempts for user 'sysadmin'",
-        "WIFI_ALERT: SSID 'FBI_MOBILE_SURVEILLANCE_TRUCK_04' detected"
+    print(f"\n[!] INITIATING SCAN - INTENSITY LEVEL: {intensity}/12")
+
+    # 2. THE THREAT ARSENAL (Unique Categories)
+    noise = [
+        "Failed password for root", 
+        "Unauthorized sudo attempt", 
+        "SSH Brute Force: 50+ attempts",
+        "Port scan detected on 0-1024"
     ]
-    
-    elite_threats = [
-        "STATE-LEVEL: Rootkit 'BeaverTail' hook detected on syscall 0x80",
-        "EXPLOIT: Buffer Overflow attempt in system memory at offset 0x41414141",
-        "APT: Lateral movement detected - Unauthorized psexec from 10.0.0.5",
-        "HYPER-THREAT: State-level 'Mega-Siphon' protocol initiated",
-        "FBI_MOST_WANTED: Connection attempt from Cyber-Criminal #35"
+    exploits = [
+        "Buffer Overflow blocked in memory", 
+        "SQL Injection: UNION SELECT detected", 
+        "Remote Code Execution (RCE) attempt",
+        "Cross-Site Scripting (XSS) payload found"
+    ]
+    state_level = [
+        "APT-28: Lateral Movement detected", 
+        "Rootkit 'BeaverTail' hook on syscall", 
+        "Data Exfiltration: 2GB to unknown IP",
+        "Zero-Day Exploit: CVE-2026-X unknown"
+    ]
+    paranoid = [
+        "FBI Surveillance Van SSID: 'NETGEAR_FBI'", 
+        "Most Wanted: Connection from Interpol #09",
+        "Hardware: Unauthorized USB device mounted",
+        "Microphone: Background audio spike detected"
     ]
 
-    # --- PHASE 1: LOG INJECTION ---
+    # Combine all into a single deck
+    deck = noise + exploits + state_level + paranoid
+    
+    # 3. DIVERSITY CHECK (The Fix)
+    # This ensures we pick UNIQUE items. No more repeating the same log 10 times.
+    sample_size = min(intensity + 1, len(deck))
+    current_attack = random.sample(deck, k=sample_size)
+
+    # 4. EXECUTE ATTACK (Write to Logs and Files)
     with open("auth.log", "a") as f:
-        # Scale the amount of 'noise' based on intensity
-        num_logs = intensity * 2
-        for _ in range(num_logs):
-            entry = random.choice(common_noise)
-            f.write(f"Apr 06 05:10:01 sentinel-ops {entry}\n")
-        
-        # --- PHASE 2: ELITE ATTACK (Only triggers at high intensity) ---
-        if intensity >= 8:
-            big_threat = random.choice(elite_threats)
-            f.write(f"Apr 06 05:12:45 sentinel-ops [CRITICAL] {big_threat}\n")
+        for threat in current_attack:
+            # Randomize the IP to make the SOC look busy
+            ip = f"{random.randint(1,255)}.{random.randint(1,255)}.{random.randint(1,255)}.10"
+            f.write(f"Apr 06 05:45:00 sentinel-ops [{threat}] from {ip}\n")
             
-            # PHYSICAL CHANGE: Tamper with the evidence file
-            # This forces the SHA-256 engine in detection.py to actually TRIGGER.
-            with open("evidence.dat", "a") as ev:
-                ev.write(f"\nMALICIOUS_INJECTION_DATA_INTENSITY_{intensity}\n")
-            print("[!] Chaos Monkey: System file 'evidence.dat' has been tampered with.")
+    # 5. INTEGRITY TAMPERING (Trigger the SHA-256 Alert)
+    if intensity >= 8:
+        print("[*] Chaos Monkey: High Intensity detected. Injecting file corruption...")
+        with open("evidence.dat", "a") as ev:
+            ev.write(f"MALICIOUS_HASH_BREAK_{random.randint(1000, 9999)}\n")
 
 def run_simulator():
     """
-    Main loop that simulates the SOC lifecycle:
-    Chaos -> Detection -> Response
+    The Full Automated Loop: Chaos -> Detection -> Response
     """
-    # Ensure evidence file exists for the integrity check to work
+    # Ensure baseline files exist
     if not os.path.exists("evidence.dat"):
         with open("evidence.dat", "w") as f:
-            f.write("System Integrity Baseline: SECURE\n")
+            f.write("BASELINE: SECURE\n")
 
-    # Step 1: Let the Monkey loose
+    # Run the Chaos Engine
     chaos_monkey()
     
-    # Brief pause to simulate processing time
-    time.sleep(1)
+    # Pause for "Processing" feel
+    time.sleep(0.5)
 
-    # Step 2: Run the actual Detection Engine (Logs + Hashes + Ports)
+    # Run the Detection Engine (Logic is in detection.py)
     findings = detect_threats()
 
-    # Step 3: Print the JSON Dashboard
+    # Output the Final JSON Dashboard (Logic is in response.py)
     execute_response(findings)
 
 if __name__ == "__main__":

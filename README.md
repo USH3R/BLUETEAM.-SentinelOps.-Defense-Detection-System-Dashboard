@@ -41,7 +41,7 @@ Logs actionable alerts for security operations teams
   
 # **Blue Team SentinelOps Structure**  
 **Primary Files / Structure**  
-blueteam-sentinelops-minimal/  
+blueteam-sentinelops/  
 ├── main.py  
 ├── ingestion.py  
 ├── detection.py  

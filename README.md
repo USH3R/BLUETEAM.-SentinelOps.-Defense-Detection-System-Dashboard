@@ -145,7 +145,7 @@ blueteam-sentinelops/
 **Prove or show the following:**  
 Understanding of defensive workflows and SOC operations  
 Automation and analysis skills  
-Real-time alerting and reporting (crucial for federal reviewers)  
+Real-time alerting and reporting  
   
 **👉 Bonus:**  
 “Rules of engagement” section for safe testing and ethical handling of simulated attacks  

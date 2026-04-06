@@ -40,8 +40,8 @@ Generates PDF or HTML “incident reports”
 Logs actionable alerts for security operations teams  
   
 # **Blue Team SentinelOps Structure**  
-**Primary Files / Structure**
-blueteam-sentinelops-minimal/
+**Primary Files / Structure**  
+blueteam-sentinelops-minimal/  
 ├── main.py  
 ├── ingestion.py  
 ├── detection.py  

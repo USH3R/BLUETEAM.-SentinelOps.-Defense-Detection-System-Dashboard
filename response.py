@@ -1,93 +1,48 @@
-import yaml
-from typing import List, Dict
-from datetime import datetime
+import os
+import json
 
+# Absolute paths inside the Docker container
+ALERTS_FILE = "/app/logs/alerts.log"
+REPORT_FILE = "/app/incident_report.json"
 
-class ResponseEngine:
-    def __init__(self, config_path: str = "settings.yaml"):
-        self.config = self.load_config(config_path)
+def write_alerts(alerts):
+    """ Writes each alert string to the alerts.log file. """
+    # Ensure the logs directory exists inside the container
+    os.makedirs(os.path.dirname(ALERTS_FILE), exist_ok=True)
+    
+    try:
+        with open(ALERTS_FILE, "a") as f:
+            for alert in alerts:
+                f.write(alert + "\n")
+        print(f"[INFO] Alerts written to {ALERTS_FILE}")
+    except Exception as e:
+        print(f"[ERROR] Could not write alerts: {e}")
 
-        # Load response mode
-        self.mode = self.config.get("response", {}).get("mode", "alert_only")
+def write_report(report_data):
+    """ Writes the final summary to the incident_report.json file. """
+    try:
+        with open(REPORT_FILE, "w") as f:
+            json.dump(report_data, f, indent=4)
+        print(f"[INFO] Incident report written to {REPORT_FILE}")
+    except Exception as e:
+        print(f"[ERROR] Could not write report: {e}")
 
-        # Output log files
-        self.alert_log_file = "alerts.log"
-        self.action_log_file = "mitigation_actions.log"
+def execute_response(threats, alert_path=ALERTS_FILE):
+    """ Bridge function for main.py to trigger the logging logic. """
+    if not threats:
+        return
+    
+    formatted_alerts = [f"[ALERT] Threat detected: {t}" for t in threats]
+    write_alerts(formatted_alerts)
+    
+    report_summary = {
+        "status": "Success",
+        "threat_count": len(threats),
+        "details": threats
+    }
+    write_report(report_summary)
 
-    def load_config(self, path: str) -> Dict:
-        try:
-            with open(path, "r") as f:
-                return yaml.safe_load(f)
-        except FileNotFoundError:
-            print(f"[WARN] Config file {path} not found. Using defaults.")
-            return {}
-
-    def handle_alerts(self, alerts: List[Dict]) -> List[Dict]:
-        processed_alerts = []
-
-        for alert in alerts:
-            self.log_alert(alert)
-
-            if self.mode == "alert_only":
-                alert["action_taken"] = "none"
-                alert["status"] = "logged"
-
-            elif self.mode == "simulate_block":
-                action_result = self.simulate_block(alert)
-                alert["action_taken"] = action_result
-                alert["status"] = "mitigated"
-
-            else:
-                alert["action_taken"] = "unknown_mode"
-                alert["status"] = "error"
-
-            processed_alerts.append(alert)
-
-        return processed_alerts
-
-    def log_alert(self, alert: Dict):
-        timestamp = datetime.now().isoformat()
-
-        log_entry = (
-            f"{timestamp} | ALERT | {alert.get('alert_type')} | "
-            f"IP: {alert.get('ip')} | Severity: {alert.get('severity')} | "
-            f"{alert.get('description')}\n"
-        )
-
-        with open(self.alert_log_file, "a") as f:
-            f.write(log_entry)
-
-        print(f"[ALERT] {alert.get('description')}")
-
-    def simulate_block(self, alert: Dict) -> str:
-        ip = alert.get("ip")
-        timestamp = datetime.now().isoformat()
-
-        action_entry = f"{timestamp} | ACTION | Blocked IP: {ip}\n"
-
-        with open(self.action_log_file, "a") as f:
-            f.write(action_entry)
-
-        print(f"[ACTION] Simulated block for IP: {ip}")
-
-        return "simulated_block"
-
-
-# Standalone test
 if __name__ == "__main__":
-    from ingestion import LogIngestor
-    from detection import ThreatEngine
-
-    ingestor = LogIngestor()
-    logs = ingestor.collect_logs()
-
-    engine = ThreatEngine()
-    alerts = engine.run_detection(logs)
-
-    responder = ResponseEngine()
-    results = responder.handle_alerts(alerts)
-
-    print(f"\n[INFO] Processed {len(results)} alerts:\n")
-
-    for result in results:
-        print(result)
+    # Test block
+    sample_alerts = ["Failed login from 192.168.1.10", "Suspicious sudo attempt"]
+    execute_response(sample_alerts)

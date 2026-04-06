@@ -2,7 +2,10 @@ services:
   sentinelops:
     build: .
     image: sentinelops:latest
+    container_name: sentinelops_container
     volumes:
-      - ./logs:/app/logs
-      - ./incident_report.json:/app/incident_report.json
+      - .:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+    network_mode: "host"
     restart: "no"

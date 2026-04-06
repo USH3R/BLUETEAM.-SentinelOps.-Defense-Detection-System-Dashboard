@@ -1,4 +1,31 @@
+# detection.py
+import hashlib
 import os
+
+def detect_threats():
+    alerts = []
+    
+    # 1. DYNAMIC LOG ANALYSIS (The Fix for the "Hard Pull")
+    if os.path.exists("auth.log"):
+        with open("auth.log", "r") as f:
+            for line in f:
+                # Extract the threat message between the brackets [ ]
+                if "[" in line and "]" in line:
+                    threat_msg = line.split("[")[1].split("]")[0]
+                    alerts.append(f"[LOGS] {threat_msg} detected")
+
+    # 2. FILE INTEGRITY CHECK (SHA-256)
+    # This checks if the Chaos Monkey actually corrupted the file
+    if os.path.exists("evidence.dat"):
+        with open("evidence.dat", "rb") as f:
+            current_hash = hashlib.sha256(f.read()).hexdigest()
+        
+        # In a real app, you'd compare this to a 'known good' hash
+        # For the sim, we trigger if the file grows or changes
+        if os.path.getsize("evidence.dat") > 50: 
+            alerts.append("[EMERGENCY] File Integrity Violation: evidence.dat tampered!")
+
+    return alertsimport os
 import hashlib
 import socket
 import json

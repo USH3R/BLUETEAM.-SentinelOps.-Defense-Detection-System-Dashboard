@@ -1,16 +1,17 @@
+# Dockerfile — Terminal-only SentinelOps
 FROM python:3.11-slim
 
+# 1. Set working directory inside container
 WORKDIR /app
 
-# Only copy what is absolutely necessary
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy everything in the current folder to /app
+# 2. Copy EVERYTHING from the repo to the container
+# This avoids the "file not found" errors if names are slightly different
 COPY . .
 
-# Set the environment to show logs immediately
+# 3. Ensure terminal-friendly output (unbuffered)
+# This forces the alerts to hit your screen immediately
 ENV PYTHONUNBUFFERED=1
 
-# Run the main script (Double check if your file is actually named main.py)
+# 4. Default command to run the simulator
+# IMPORTANT: Ensure your primary script is actually named 'main.py'
 CMD ["python", "main.py"]

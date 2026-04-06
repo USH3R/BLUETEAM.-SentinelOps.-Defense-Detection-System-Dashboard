@@ -160,30 +160,24 @@ https://github.com/USH3R/REDTEAM.-Offensive-Security-Simulator
 https://github.com/USH3R/ZEROTRUSTFS.-Security-Toolkit.-NPM-Containers.-Federal-File-Sharing-System./tree/main  
 Together, these projects showcase full-spectrum cybersecurity capability, illustrating that the author can attack, defend, and build secure systems across the complete security lifecycle.  
 
-# **Instructions to Run BLUE TEAM SentinelOps Defense Detection System Dashboard**  
-Using GitHub Codespaces (Recommended)
-1. Click the green '<> Code' button on this repo, then
-2. Select the tab called Codespaces, then
-3. Select (click on) 'Create codespace on main'.
-2. Once the Terminal loads, simply type: python3 main.py
+# **🛡️ Instructions to Run BLUE TEAM SentinelOps Defense Detection System Dashboard**  
+Using GitHub Codespaces (Recommended)  
+1. Click the green '<> Code' button on this repo, then  
+2. Select the tab called Codespaces, then  
+3. Select (click on) 'Create codespace on main'.  
+4. Once the Terminal loads, simply type:  
+&nbsp;&nbsp;&nbsp;&nbsp;bash run.sh  
+5. Monitor the Dashboard: The system will automatically build the environment, initiate a scan, and output the Defensive Dashboard results to your terminal.
 
-# **Notes**
-This app mimics a professional DevSecOps workflow where security policies are 'Infrastructure as Code' (IaC). You don't just 'click a button' to block IPs; you update a policy file for auditability.  
-**🔍 Logic Check**  
-In the handle_alerts loop:  
+**⚠️ Important: Environment & Safety**  
   
-&nbsp;&nbsp;&nbsp;&nbsp;if self.mode == "alert_only":  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert["action_taken"] = "none"  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert["status"] = "logged"  
-&nbsp;&nbsp;&nbsp;&nbsp;elif self.mode == "simulate_block":  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# ... logic ...  
-  
-in the settings.yaml, the mode is currently set to  
-  
-&nbsp;&nbsp;&nbsp;&nbsp;alert_only.  
-  
-If the user wants to test the blocking logic the settings.yaml file must be updated to:  
-  
-&nbsp;&nbsp;&nbsp;&nbsp;simulate_block  
-  
-(matching the elif statement). It’s a clean way to toggle the "defensive posture" of the app.  
+Enclosed Simulation: This toolkit only "looks in on itself." It monitors a dedicated evidence.dat file and generated logs within the container environment.  
+No External Access: This app does not scan your local hardware, open network ports, or transmit data.  
+Scenario Logic: The "threats" detected are part of a randomized simulation library used to test the engine's response and reporting capabilities.  
+
+**📊 Understanding the Output**  
+When the scan completes, you will receive a JSON Incident Summary.  
+&nbsp;&nbsp;&nbsp;&nbsp;Engine Status: Confirms the system is active.  
+&nbsp;&nbsp;&nbsp;&nbsp;Alerts Found: Total count of identified anomalies.
+&nbsp;&nbsp;&nbsp;&nbsp;Raw Data: A breakdown of every log entry captured during the scan, 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from routine maintenance to critical "Emergency" violations.  

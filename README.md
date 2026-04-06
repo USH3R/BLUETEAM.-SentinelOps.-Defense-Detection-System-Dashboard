@@ -172,18 +172,18 @@ This app mimics a professional DevSecOps workflow where security policies are 'I
 **🔍 Logic Check**  
 In the handle_alerts loop:  
   
-if self.mode == "alert_only":  
-    alert["action_taken"] = "none"  
-    alert["status"] = "logged"  
-elif self.mode == "simulate_block":  
-    # ... logic ...  
+&nbsp;&nbsp;&nbsp;&nbsp;if self.mode == "alert_only":  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert["action_taken"] = "none"  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert["status"] = "logged"  
+&nbsp;&nbsp;&nbsp;&nbsp;elif self.mode == "simulate_block":  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# ... logic ...  
   
 in the settings.yaml, the mode is currently set to  
   
-alert_only.  
+&nbsp;&nbsp;&nbsp;&nbsp;alert_only.  
   
 If the user wants to test the blocking logic the settings.yaml file must be updated to:  
   
-simulate_block  
+&nbsp;&nbsp;&nbsp;&nbsp;simulate_block  
   
 (matching the elif statement). It’s a clean way to toggle the "defensive posture" of the app.  

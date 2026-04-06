@@ -110,7 +110,7 @@ blueteam-sentinelops/
 │ │ └── behavior_model.py  
 │ └── process_monitor/  
 │ └── suspicious_process.py  
-├── correlation/
+├── correlation/  
 │ ├── event_linker.py  
 │ ├── timeline_builder.py  
 │ └── logic.py  
